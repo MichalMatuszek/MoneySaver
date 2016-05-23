@@ -18,7 +18,7 @@ public class Cost implements IBaseEntity{
     private long id;
     private String name;
     private Date date;
-    private CostType type;
+    private long type;
     private float value;
 
     @Override
@@ -47,11 +47,11 @@ public class Cost implements IBaseEntity{
         this.date = date;
     }
 
-    public CostType getType() {
+    public long getType() {
         return type;
     }
 
-    public void setType(CostType type) {
+    public void setType(long type) {
         this.type = type;
     }
 
