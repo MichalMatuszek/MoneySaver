@@ -15,7 +15,16 @@ import pl.mmatuszek.moneysaver.interfaces.dao.ICostDAO;
 public class CostDAO extends BaseDAO<Cost> implements ICostDAO {
     @Override
     public Cost findById(long id) {
-        return null;
+        String selection = "_ID = ?";
+        String[] args = {Long.toString(id)};
+        Cursor cursor = loadAll(Cost.TABLE,Cost.COLUMNS,selection,args);
+        Cost cost = null;
+        if(cursor.moveToFirst()){
+            cost = new Cost();
+            mapCursorToEntity(cursor,cost);
+        }
+
+        return cost;
     }
 
     @Override

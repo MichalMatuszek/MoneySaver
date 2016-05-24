@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import pl.mmatuszek.moneysaver.contract.util.database.migrations.Migration_0001;
+
 /**
  * Created by Michal on 2016-05-21.
  */
@@ -18,7 +20,7 @@ public class DbContext extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(new Migration_0001().getSQLQuery());
     }
 
     @Override
