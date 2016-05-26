@@ -15,7 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.AddCostActivity" />
         <activity android:name=".view.AddCostTypeActivity"></activity>
         <meta-data
             android:name = "roboguice.modules"
