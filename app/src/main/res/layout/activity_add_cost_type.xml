@@ -3,7 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="pl.mmatuszek.moneysaver.view.AddCostTypeActivity">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Nazwa typu kosztu"
+        android:id="@+id/txtViewCostTypeName" android:layout_marginLeft="10dp" android:textSize="16sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCostTypeName" android:layout_marginLeft="13dp" android:hint="nazwa typu kosztu"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zapisz"
+        android:onClick="onSaveClick"/>
 
 </LinearLayout>

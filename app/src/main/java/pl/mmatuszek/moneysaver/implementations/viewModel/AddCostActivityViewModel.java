@@ -6,15 +6,16 @@ import com.google.inject.Inject;
 
 
 import java.util.Date;
+import java.util.List;
 
 import pl.mmatuszek.moneysaver.contract.entity.Cost;
 import pl.mmatuszek.moneysaver.interfaces.dao.ICostDAO;
-import pl.mmatuszek.moneysaver.interfaces.viewModels.IMainActivityViewModel;
+import pl.mmatuszek.moneysaver.interfaces.viewModels.IAddCostActivityViewModel;
 
 /**
  * Created by Michal on 2016-05-26.
  */
-public class MainActivityViewModel implements IMainActivityViewModel {
+public class AddCostActivityViewModel implements IAddCostActivityViewModel {
 
     @Inject
     ICostDAO costDAO;
@@ -71,7 +72,7 @@ public class MainActivityViewModel implements IMainActivityViewModel {
     }
 
     @Override
-    public void saveOrUpdate(Cost entity) {
+    public void saveOrUpdate() {
         Cost cost = costDAO.findById(id);
         if(cost == null){
             cost = new Cost();

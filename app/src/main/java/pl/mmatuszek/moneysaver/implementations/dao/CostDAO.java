@@ -3,10 +3,12 @@ package pl.mmatuszek.moneysaver.implementations.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import pl.mmatuszek.moneysaver.contract.entity.Cost;
+import pl.mmatuszek.moneysaver.contract.entity.CostType;
 import pl.mmatuszek.moneysaver.interfaces.dao.ICostDAO;
 
 /**
@@ -45,8 +47,18 @@ public class CostDAO extends BaseDAO<Cost> implements ICostDAO {
     }
 
     @Override
-    public List<Cost> getLastAddedCosts(int count) {
-        return null;
+    public List<Cost> getCosts() {
+        List<Cost> result = new ArrayList<Cost>();
+        Cursor cursor = loadAll(Cost.TABLE,Cost.COLUMNS);
+        if(cursor.moveToFirst()){
+            do {
+                Cost cost = new Cost();
+                mapCursorToEntity(cursor,cost);
+                result.add(cost);
+            }while(cursor.moveToNext());
+        }
+
+        return result;
     }
 
     public void mapCursorToEntity(Cursor cursor, Cost cost){

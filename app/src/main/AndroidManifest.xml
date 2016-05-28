@@ -15,10 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.AddCostTypeActivity"></activity>
+        <activity android:name=".view.AddCostTypeActivity" />
+
         <meta-data
-            android:name = "roboguice.modules"
+            android:name="roboguice.modules"
             android:value="pl.mmatuszek.moneysaver.infrastructure.IOCModule" />
+
+        <activity android:name=".view.AddCostActivity" />
+        <activity android:name=".view.ShowCostsActivity"></activity>
     </application>
 
 </manifest>

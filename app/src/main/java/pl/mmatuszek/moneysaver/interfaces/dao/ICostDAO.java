@@ -13,5 +13,5 @@ public interface ICostDAO extends IBaseDAO {
 
     void saveOrUpdate(Cost cost);
 
-    List<Cost> getLastAddedCosts(int count);
+    List<Cost> getCosts();
 }

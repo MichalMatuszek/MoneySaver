@@ -6,28 +6,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.inject.Inject;
-
-import pl.mmatuszek.moneysaver.interfaces.viewModels.IMainActivityViewModel;
+import pl.mmatuszek.moneysaver.view.AddCostActivity;
 import pl.mmatuszek.moneysaver.view.AddCostTypeActivity;
+import pl.mmatuszek.moneysaver.view.ShowCostsActivity;
 import roboguice.RoboGuice;
 import roboguice.activity.RoboActivity;
 
 public class MainActivity extends RoboActivity {
-
-    @Inject
-    IMainActivityViewModel mainActivityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupIocContainer();
-        initializeComponent();
-    }
-
-    private void initializeComponent() {
-        mainActivityViewModel.setContext(this);
     }
 
     private void setupIocContainer(){
@@ -41,19 +32,25 @@ public class MainActivity extends RoboActivity {
         return true;
     }
 
-    public void onSaveClick(View view){
-
+    public void onAddCostClick(View view){
+        Intent intent = new Intent(this, AddCostActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(this, AddCostTypeActivity.class);
+        Intent intent;
         switch(item.getItemId()) {
             case R.id.add_cost_type:
-                startActivity(intent);
-                return true;
+                intent = new Intent(this, AddCostTypeActivity.class);
+                break;
+            case R.id.show_costs:
+                intent = new Intent(this, ShowCostsActivity.class);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
+        startActivity(intent);
+        return true;
     }
 }

@@ -5,6 +5,8 @@
     tools:context=".MainActivity">
     <item android:id="@+id/add_cost_type" android:title="Dodaj typ kosztu"
         android:orderInCategory="100" app:showAsAction="never"/>
+    <item android:id="@+id/show_costs" android:title="Pokaz koszty"
+        android:orderInCategory="101" app:showAsAction="never"/>
 </menu>
 
 
