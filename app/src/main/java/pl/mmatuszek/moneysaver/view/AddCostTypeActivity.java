@@ -1,11 +1,13 @@
 package pl.mmatuszek.moneysaver.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.google.inject.Inject;
 
+import pl.mmatuszek.moneysaver.MainActivity;
 import pl.mmatuszek.moneysaver.R;
 import pl.mmatuszek.moneysaver.interfaces.viewModels.IAddCostTypeActivityViewModel;
 import roboguice.activity.RoboActivity;
@@ -32,5 +34,8 @@ public class AddCostTypeActivity extends RoboActivity {
     public void onSaveClick(View view){
         addCostTypeActivityViewModel.setName(txtName.getText().toString());
         addCostTypeActivityViewModel.saveOrUpdate();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

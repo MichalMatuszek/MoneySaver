@@ -9,7 +9,9 @@ import java.util.Date;
 import java.util.List;
 
 import pl.mmatuszek.moneysaver.contract.entity.Cost;
+import pl.mmatuszek.moneysaver.contract.entity.CostType;
 import pl.mmatuszek.moneysaver.interfaces.dao.ICostDAO;
+import pl.mmatuszek.moneysaver.interfaces.dao.ICostTypeDAO;
 import pl.mmatuszek.moneysaver.interfaces.viewModels.IAddCostActivityViewModel;
 
 /**
@@ -19,6 +21,9 @@ public class AddCostActivityViewModel implements IAddCostActivityViewModel {
 
     @Inject
     ICostDAO costDAO;
+
+    @Inject
+    ICostTypeDAO costTypeDAO;
 
     private long id;
     private String name;
@@ -68,7 +73,13 @@ public class AddCostActivityViewModel implements IAddCostActivityViewModel {
 
     @Override
     public void setContext(Context context) {
+        costTypeDAO.setContext(context);
         costDAO.setContext(context);
+    }
+
+    @Override
+    public List<CostType> getCostTypes() {
+        return costTypeDAO.getAll();
     }
 
     @Override

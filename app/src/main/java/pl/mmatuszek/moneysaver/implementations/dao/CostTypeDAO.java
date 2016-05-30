@@ -30,7 +30,7 @@ public class CostTypeDAO extends BaseDAO<CostType> implements ICostTypeDAO {
 
     @Override
     public CostType findById(long id) {
-        String selection = "_ID = ?";
+        String selection = "_id = ?";
         String[] args = {Long.toString(id)};
         Cursor cursor = loadAll(CostType.TABLE,CostType.COLUMNS,selection,args);
         CostType costType = null;
